@@ -41,3 +41,4 @@ const cartQuantity = 5;
 if (cartQuantity) {
     console.log('cart has products')
 }
+*/
