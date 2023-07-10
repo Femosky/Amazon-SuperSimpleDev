@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <p>RED for Heads | BLUE for Tails</p>
+    <button
+      onclick="
+      playGame('heads');
+      "
+    >
+      heads
+    </button>
+
+    <button
+      onclick="
+    playGame('tails');
+    "
+    >
+      tails
+    </button>
+
+    <p>Result</p>
+    <p
+      id="output"
+      style="
+        margin-top: 2rem;
+        padding: 10px;
+        width: 100px;
+        border: 1px solid black;
+      "
+    ></p>
+ 
+    <p>Scores</p>
+    <p
+      id="scores"
+      style="
+        margin-top: 2rem;
+        padding: 10px;
+        width: 100px;
+        border: 1px solid black;
+      "
+    ></p>
+
+    <script>
+      const output = document.getElementById("output");
+      const scores = document.getElementById("scores");
+
+      let score = {
+        wins: 0,
+        losses: 0
+      };
+
+      function computerMove() {
+        const randomNumber = Math.random();
+        let result = randomNumber < 0.5 ? "heads" : "tails";
+        return result;
+      }
+
+      // if (resultColor === 'red') {
+      //   output.style.color = "red";
+      // } else if (resultColor === 'blue') {
+      //   output.style.color = "blue";
+      // }
+
+      function playGame(guess) {
+        let result = computerMove();
+        
+        if (result === "heads") {
+          output.style.color = "red";
+        } else if (result === "tails") {
+          output.style.color = "blue";
+        }
+        
+        let answer = guess === result ? "You win!" : "You lose!";
+        output.innerHTML = answer;
+
+        
+        if (answer === 'You win!') {
+          score.wins++;
+        } else (answer === 'You lose!') {
+          score.losses++;
+        }
+        
+        resultOutput = `Wins: ${score.wins}, Losses: ${score.losses}`;
+        scores.innerHTML = resultOutput;
+
+      }
+
+
+    </script>
+  </body>
+</html>
