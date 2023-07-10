@@ -23,6 +23,5 @@ const variable2 = 3;
 
 var variable3 = 3;
 
-console.log(typeof 3); 
+console.log(typeof 3);
 console.log(typeof message);
-
