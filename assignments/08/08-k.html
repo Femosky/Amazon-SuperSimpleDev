@@ -77,6 +77,8 @@
         
         resultOutput = `Wins: ${score.wins}, Losses: ${score.losses}`;
         scores.innerHTML = resultOutput;
+
+        localStorage.setItem('scores', JSON.stringify(scores));
       }
 
 
