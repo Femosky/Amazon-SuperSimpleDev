@@ -18,6 +18,14 @@
     >
       tails
     </button>
+    
+    <button
+      onclick="
+    resetScore();
+    "
+    >
+      Reset Score
+    </button>
 
     <p>Result</p>
     <p
@@ -38,17 +46,21 @@
         padding: 10px;
         width: 100px;
         border: 1px solid black;
-      "
+        "
     ></p>
-
+    
     <script>
       const output = document.getElementById("output");
       const scores = document.getElementById("scores");
 
-      let score = {
+      let score = JSON.parse(localStorage.getItem('scores')) || {
         wins: 0,
         losses: 0
       };
+
+      function saveScore() {
+        localStorage.setItem('scores', JSON.stringify(score));
+      }
 
       function computerMove() {
         const randomNumber = Math.random();
@@ -74,14 +86,20 @@
         } else if (answer === 'You lose!') {
           score.losses++;
         }
-        
-        resultOutput = `Wins: ${score.wins}, Losses: ${score.losses}`;
-        scores.innerHTML = resultOutput;
 
-        localStorage.setItem('scores', JSON.stringify(scores));
+        let resultOutput = `Wins: ${score.wins}, Losses: ${score.losses}`;
+        scores.innerHTML = resultOutput;
+        saveScore();
+        return resultOutput;
       }
 
+      function resetScore() {
+        score.wins = 0;
+        score.losses = 0;
 
+        scores.innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}`;
+        saveScore();
+      }
     </script>
   </body>
 </html>
