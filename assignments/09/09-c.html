@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>09-c</title>
+    <script src="./09-c.js" defer></script>
+  </head>
+  <body>
+    <button onclick="chosen(this);" ="button">heads</button>
+    <button onclick="chosen(this);" ="button">tails</button>
+    <p class="output"></p>
+    <script>
+        function chosen(button) {
+            let chose = button.innerHTML;
+            
+            document.querySelector('.output').innerHTML = `You chose: ${chose}`;
+            chose = '';
+        }
+    </script>
+  </body>
+</html>
