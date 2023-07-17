@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>09-d</title>
+    <script src="./09-d.js" defer></script>
+  </head>
+  <body>
+    <input class="input-one" onkeydown="enterToEnter(event);" type="text" placeholder="Name">
+    <button class='button-one' onclick="hello();">Submit</button>
+    <p class="output"></p>
+    <script>
+      function enterToEnter(event) {
+        console.log(event.key);
+
+        if (event.key === 'Enter') {
+          hello();
+        }
+      }
+
+      function hello() {
+        let text = document.querySelector('.input-one').value;
+            
+        document.querySelector('.output')
+          .innerHTML = `Your name is: ${text}`;
+      }
+
+    </script>
+  </body>
+</html>
