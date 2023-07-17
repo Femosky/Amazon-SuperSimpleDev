@@ -12,14 +12,58 @@
       Subscribe
     </button>
 
+    <p>Amazon Shipping Calculator</p>
+    <input onkeydown="handleCostKeyDown(event);" type="text" name="" id="cost-input" placeholder="Cost of order">
+    <button onclick="calculateTotal();" class="js-calculate-button">Calculate</button>
+    <p class="cost-output"></p>
+    
     <script>
-      const buttonElement = document.querySelector(".js-subscribe-button");
+      Sting(25);
+      console.log('25' - 5);
 
+      window.document
+      window.console.log('windows');
+      window.alert
+
+      const buttonElement = document.querySelector(".js-subscribe-button");
+      const calcButtonElement = document.querySelector('.js-calculate-button');
+      const inputElement = document.getElementById('cost-input');
+      const costOutput = document.querySelector('.cost-output');
+      
       function subscribe() {
         if (buttonElement.innerText === "Subscribe") {
           buttonElement.innerHTML = "Subscribed";
         } else {
           buttonElement.innerHTML = "Subscribe";
+        }
+      }
+      
+      function handleCostKeyDown(event) {
+        costOutput.innerHTML = 'typing';
+    
+        console.log(event.key);
+        if (event.key === 'Enter') {
+          calculateTotal();
+        }
+      }
+      
+      function calculateTotal() {
+        let shippingCost = 0;
+        let cost = 0;
+
+        let value = Number(inputElement.value);
+        
+        if (value < 40) {
+          shippingCost = 10;
+        }
+        
+        cost = value + shippingCost;
+
+        if (cost >= 10) {
+          costOutput.innerHTML = `$${cost}`;
+        } else {
+          costOutput.innerHTML = 'Invalid. Try again.';
+          cost, shippingCost = 0;
         }
       }
     </script>
