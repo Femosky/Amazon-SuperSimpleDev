@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <div id="output" style="margin-top: 2rem; padding: 10px; width: 100px; border: 1px solid black;"></div>
+    <p>
+      <button onclick="updateCalculation('1');">1</button>
+      <button onclick="updateCalculation('2');">2</button>
+      <button onclick="updateCalculation('3');">3</button>
+      <button onclick="updateCalculation(' + ');">+</button>
+    </p>
+
+    <p>
+      <button onclick="updateCalculation('4');">4</button>
+      <button onclick="updateCalculation('5');">5</button>
+      <button onclick="updateCalculation('6');">6</button>
+      <button onclick="updateCalculation(' - ');">-</button>
+    </p>
+
+    <p>
+      <button onclick="updateCalculation('7');">7</button>
+      <button onclick="updateCalculation('8');">8</button>
+      <button onclick="updateCalculation('9');">9</button>
+      <button onclick="updateCalculation(' * ');">*</button>
+    </p>
+
+    <p>
+      <button onclick="updateCalculation('0');">0</button>
+      <button onclick="updateCalculation('.');">.</button>
+      <button onclick="equalTo();">=</button>
+      <button onclick="updateCalculation(' / ');">/</button>
+    </p>
+
+    <p>
+      <button onclick="clearOut();">Clear</button>
+    </p>
+
+    <script>
+      let output = document.getElementById('output');
+      let calculation = localStorage.getItem('calculation') || '0';
+
+      displayCalculation();
+
+      function saveCalculation() {
+        localStorage.setItem('calculation', calculation);
+      }
+
+      function updateCalculation(value) {
+        if (output.innerHTML === '0') {
+          clearOut();
+        }
+
+        calculation += value;
+        displayCalculation();
+        saveCalculation();
+      }
+
+      function equalTo() {
+        calculation = eval(calculation);
+        displayCalculation();
+        saveCalculation();
+      }
+
+      function clearOut() {
+        calculation = '';
+        displayCalculation();
+        saveCalculation();
+      }
+
+      function displayCalculation() {
+        output.innerHTML = calculation;
+      }
+    </script>
+  </body>
+</html>

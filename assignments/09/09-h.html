@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>09-g</title>
+    <script src="./09-g.js" defer></script>
+  </head>
+  <body>
+    <input onkeyup="onScreenTyping(event);" class='input' type="text" placeholder="type">
+    <p class="output"></p>
+    <script>
+      // let result = '';
+      const inputElement = document.querySelector('.input');
+      function onScreenTyping(event) {
+        // result += event.key;
+
+        document.querySelector('.output')
+            .innerHTML = inputElement.value;
+      }
+    </script>
+  </body>
+</html>
