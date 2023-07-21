@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Papper Scissors</title>
+    <link rel="stylesheet" href="styles/10-rock-paper-scissors.css">
+    <script src="scripts/10-rock-paper-scissors.js" defer></script>
+    <style>
+        .amazon-button {
+            border: none;
+            border-radius: 20px;
+            background-color: rgb(255, 216, 20);
+            color: black;
+            font-family: Arial;
+            font-size: 15px;
+            padding: 7px 40px;
+            cursor: pointer;
+        }
+        .request-button {
+            border: none;
+            border-radius: 5px;
+            background-color: black;
+            padding: 12px 17px;
+            color: white;
+            font-family: Arial;
+            font-size: 15px;
+            font-weight: bold;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        .schedule-button {
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(230, 230, 230);
+            padding: 12px 17px;
+            color: black;
+            font-family: Arial;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        /* 10 d */
+        .button-color-switch {
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(230, 230, 230);
+            padding: 12px 17px;
+            color: black;
+            font-family: Arial;
+            font-size: 16px;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        .is-toggled {
+            background-color: black;
+            color: white;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- 10 a, b, and c -->
+    <button class="amazon-button">Add to Cart</button>
+    <p>
+        <button class="request-button">Request now</button>
+        <button class="schedule-button">Schedule for later</button>
+    </p>
+
+    <button onclick="test();" class="js-button">Test</button>
+    <p class="output"></p>
+
+    <!-- 10 d -->
+    <button onclick="toggleSwitch1();" class="js-button-color-switch-one button-color-switch">Gaming</button>
+    <button onclick="toggleSwitch2();" class="js-button-color-switch-two button-color-switch">Music</button>
+    <button onclick="toggleSwitch3();" class="js-button-color-switch-three button-color-switch">Tech</button>
+
+    <script>
+        const output = document.querySelector('.output');
+        const buttonSwitchGaming = document.querySelector('.js-button-color-switch-one');
+        const buttonSwitchMusic = document.querySelector('.js-button-color-switch-two');
+        const buttonSwitchTech = document.querySelector('.js-button-color-switch-three');
+
+        function test() {
+            if (document.classList.contains('js-button')) {
+                output.innerHTML = "Works";
+            }
+        }
+
+        function toggleSwitch1() {
+            buttonSwitchGaming.classList.contains('is-toggled')
+            ? buttonSwitchGaming.classList.remove('is-toggled')
+            : buttonSwitchGaming.classList.add('is-toggled');
+        }
+        function toggleSwitch2() {
+            buttonSwitchMusic.classList.contains('is-toggled')
+            ? buttonSwitchMusic.classList.remove('is-toggled')
+            : buttonSwitchMusic.classList.add('is-toggled');
+        }
+        function toggleSwitch3() {
+            buttonSwitchTech.classList.contains('is-toggled')
+            ? buttonSwitchTech.classList.remove('is-toggled')
+            : buttonSwitchTech.classList.add('is-toggled');
+        }
+    </script>
+  </body>
+</html>
