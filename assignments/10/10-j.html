@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>10-i Calculator</title>
+    <link rel="stylesheet" href="../styles/10-j.css">
+    <script src="../scripts/10-j.js" defer></script>
+  </head>
+  <body>
+    <p class="output" id="output"></p>
+    <p>
+      <button class="button none-operational" onclick="updateCalculation('1');">1</button>
+      <button class="button none-operational" onclick="updateCalculation('2');">2</button>
+      <button class="button none-operational" onclick="updateCalculation('3');">3</button>
+      <button class="button operational" onclick="updateCalculation(' + ');">+</button>
+    </p>
+
+    <p>
+      <button class="button none-operational" onclick="updateCalculation('4');">4</button>
+      <button class="button none-operational" onclick="updateCalculation('5');">5</button>
+      <button class="button none-operational" onclick="updateCalculation('6');">6</button>
+      <button class="button operational" onclick="updateCalculation(' - ');">-</button>
+    </p>
+
+    <p>
+      <button class="button none-operational" onclick="updateCalculation('7');">7</button>
+      <button class="button none-operational" onclick="updateCalculation('8');">8</button>
+      <button class="button none-operational" onclick="updateCalculation('9');">9</button>
+      <button class="button operational" onclick="updateCalculation(' * ');">*</button>
+    </p>
+
+    <p>
+      <button class="button none-operational" onclick="updateCalculation('0');">0</button>
+      <button class="button none-operational" onclick="updateCalculation('.');">.</button>
+      <button class="button none-operational" onclick="equalTo();">=</button>
+      <button class="button operational" onclick="updateCalculation(' / ');">/</button>
+    </p>
+
+    <p>
+      <button class="button clear-button none-operational" onclick="clearOut();">Clear</button>
+    </p>
+  </body>
+</html>
