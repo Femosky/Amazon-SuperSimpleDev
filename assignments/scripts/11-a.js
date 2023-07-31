@@ -137,6 +137,7 @@ minMax([3]);
 
 //this exercise was a problem for me NOT WORKING!
 
+/*
 function countWords(words) {
     let count = 0;
     let previousWord = null;
@@ -167,6 +168,49 @@ function countWords(words) {
 
         previousValue = scapeGoat;
 
+    }
+}
+*/
+
+function countWords(words) {
+    let wordCounter = {};
+    let previousWord = 0;
+    
+    for (let i = 0; i < words.length; i++) {
+        let keyToCheck = previousWord;
+        let newKey = 0;
+        const word = words[i];
+
+        if (word in wordCounter) {
+            wordCounter[word] += 1;
+        } else {
+            wordCounter[word] = 1;
+        }
+    
+        previousWord = word;
+        exportWord = word;
+
+        return word;
+    }
+    
+    console.log(wordCounter);
+
+    const res = Object.keys(wordCounter);
+    let newCounter = [];
+
+    for (let i = 0; i < res.length; i++) {
+        const currentRes = res[i];
+        let val = wordCounter[currentRes];
+        newCounter.push(val);
+    }
+
+    newCounter.sort((a, b) => a - b);
+    
+    console.log(`max: ${largestNumber}, min: ${smallestNumber}`);
+
+    return {
+        largestNumber: newCounter[newCounter.length -1],
+        smallestNumber: newCounter[0]
     }
 }
 
