@@ -13,13 +13,31 @@ interval = setInterval(function() {
 
 */
 
-let messages = 2;
+let messages = 1;
 
-let interval;
+let intervalId;
+
+addMessage();
 
 function addMessage() {
-    interval = setInterval(function() {
-        document.title = `(${messages}) New messages`;
-        count++;
+    messages++;
+
+    intervalId = setInterval(function() {
+        if (document.title === 'App') {
+            if (messages === 1) {
+                document.title = `(${messages}) New message`;
+            } else {
+                document.title = `(${messages}) New messages`
+            }
+        } else if (messages === 0) {
+            clearInterval(intervalId);
+            document.title = 'App';
+        } else {
+            document.title = 'App';
+        }
     }, 1000);
+}
+
+function removeMessage() {
+    messages--;
 }

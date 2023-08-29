@@ -45,15 +45,62 @@ setInterval(function () {
 console.log("next line 2");
 */
 
+/*
 [
   'make dinner',
   'wash dishes',
   'watch youtube'
-].forEach(function(value, index) {
+].forEach((value, index) => {
   if (value === 'wash dishes') {
     return;
   }
 
   console.log(index);
   console.log(value);
+});
+
+const regularFunction = function(param, param2) {
+  console.log('hello');
+  return 5;
+};
+
+const arrowFunction = (param, param2) => {
+  console.log('hello');
+  return 5;
+};
+arrowFunction();
+
+const oneParam = param => {
+  console.log(param + 1);
+};
+oneParam(2);
+
+const oneLine = () => 2 + 3;
+console.log(oneLine());
+
+const object2 = {
+  method: () => {
+
+  },
+  method() {
+
+  }
+}
+*/
+
+const buttonElement = document.querySelector('.js-button');
+const output = document.querySelector('.output');
+
+const eventListener = () => {
+  console.log('click');
+  output.innerText = 'click';
+};
+
+buttonElement.addEventListener('click', eventListener);
+
+buttonElement.removeEventListener('click', eventListener);
+
+buttonElement.addEventListener('click', () => {
+  console.log('click');
+  output.innerText = 'click2';
 });
