@@ -13,14 +13,38 @@ let intervalId;
 
 // };
 
+document.querySelector('.js-auto-play-button').addEventListener('click', () => {
+    autoPlay();
+});
+document
+    .querySelector('.js-reset-score-button')
+    .addEventListener('click', () => {
+        resetScorePrompt();
+    });
+
+document.body.addEventListener('keydown', (event) => {
+    if (event.key === 'a' || event.key === 'A') {
+        autoPlay();
+    }
+});
+document.body.addEventListener('keydown', (event) => {
+    if (event.key === 'Backspace') {
+        resetScorePrompt();
+    }
+});
+
 function autoPlay() {
     if (!isAutoPlaying) {
+        document.querySelector('.js-auto-play-button').innerHTML =
+            'Stop Playing';
+
         intervalId = setInterval(() => {
             const playerMove = pickComputerMove();
             playGame(playerMove);
         }, 1000);
         isAutoPlaying = true;
     } else {
+        document.querySelector('.js-auto-play-button').innerHTML = 'Auto Play';
         clearInterval(intervalId);
         isAutoPlaying = false;
     }
@@ -86,8 +110,8 @@ function playGame(playerMove) {
     }
 
     let newResult = `You
-    <img src="images/${playerMove}-emoji.png" alt="" class="move-icon-two">
-    <img src="images/${computerMove}-emoji.png" alt="" class="move-icon-two">
+    <img src="/images/${playerMove}-emoji.png" alt="" class="move-icon-two">
+    <img src="/images/${computerMove}-emoji.png" alt="" class="move-icon-two">
     Computer`;
 
     updateResult(result);
@@ -109,6 +133,21 @@ function updateScoreElement() {
     ).innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
 }
 
+function resetScorePrompt() {
+    document.querySelector('.js-reset-confirmation-popup').innerHTML = `
+        <div class="reset-confirmation-block">
+            <p>Are you sure you want to reset the score?</p>
+            <div>
+                <button onclick="
+                    resetScore();
+                    setTimeout(() => document.querySelector('.js-reset-confirmation-popup').innerHTML = '', 1000);
+                " class="js-reset-yes-button reset-confirmation-button">Yes</button>
+                <button onclick="document.querySelector('.js-reset-confirmation-popup').innerHTML = '';" class="js-reset-no-button reset-confirmation-button">No</button>
+            </div>
+        </div>
+    `;
+}
+
 function resetScore() {
     score.wins = 0;
     score.losses = 0;
@@ -118,7 +157,6 @@ function resetScore() {
     updateMoves('', '', '');
 
     updateScoreElement();
-    alert(`Scores reset`);
     localStorage.removeItem('score');
 }
 

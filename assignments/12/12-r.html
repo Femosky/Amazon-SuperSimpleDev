@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Rock Papper Scissors</title>
-        <link rel="stylesheet" href="styles/12-rock-paper-scissors.css" />
-        <script src="scripts/12-rock-paper-scissors.js" defer></script>
+        <title>12 k</title>
+        <link rel="stylesheet" href="../styles/12-r.css" />
+        <script src="../scripts/12-r.js" defer></script>
     </head>
     <body>
         <p class="title">Rock Paper Scissors</p>
@@ -13,19 +13,19 @@
         <p>
             <img
                 class="js-rock-button move-icon"
-                src="images/rock-emoji.png"
+                src="/images/rock-emoji.png"
                 alt=""
             />
 
             <img
                 class="js-paper-button move-icon"
-                src="images/paper-emoji.png"
+                src="/images/paper-emoji.png"
                 alt=""
             />
 
             <img
                 class="js-scissors-button move-icon"
-                src="images/scissors-emoji.png"
+                src="/images/scissors-emoji.png"
                 alt=""
             />
         </p>
@@ -34,22 +34,16 @@
         <p class="js-moves"></p>
         <p class="js-score score"></p>
 
-        <button
-            onclick="
-        resetScore();
-    "
-            class="reset-score-button"
-        >
-            Reset score
-        </button>
+        <div>
+            <button class="js-reset-score-button reset-score-button">
+                Reset score
+            </button>
 
-        <button
-            onclick="autoPlay();"
-            class="js-auto-play-button auto-play-button"
-        >
-            Auto Play
-        </button>
+            <button class="js-auto-play-button auto-play-button">
+                Auto Play
+            </button>
+        </div>
 
-        <script></script>
+        <div class="js-reset-confirmation-popup"></div>
     </body>
 </html>

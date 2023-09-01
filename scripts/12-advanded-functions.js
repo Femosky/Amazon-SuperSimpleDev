@@ -88,12 +88,13 @@ const object2 = {
 }
 */
 
+/*
 const buttonElement = document.querySelector('.js-button');
 const output = document.querySelector('.output');
 
 const eventListener = () => {
-  console.log('click');
-  output.innerText = 'click';
+    console.log('click');
+    output.innerText = 'click';
 };
 
 buttonElement.addEventListener('click', eventListener);
@@ -101,6 +102,26 @@ buttonElement.addEventListener('click', eventListener);
 buttonElement.removeEventListener('click', eventListener);
 
 buttonElement.addEventListener('click', () => {
-  console.log('click');
-  output.innerText = 'click2';
+    console.log('click2');
+    output.innerText = 'click2';
 });
+*/
+
+console.log(
+    [1, -3, 5].filter((value, index) => {
+        // if (value >= 0) {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+        return value >= 0;
+    })
+);
+
+console.log(
+    [1, 1, 3].map((value, index) => {
+        return value * 2;
+    })
+);
+
+console.log([1, 1, 3].map((value) => value * 2));

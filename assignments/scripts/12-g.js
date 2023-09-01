@@ -13,6 +13,13 @@ interval = setInterval(function() {
 
 */
 
+document.querySelector('.js-button-one').addEventListener('click', () => {
+    addMessage();
+});
+document.querySelector('.js-button-two').addEventListener('click', () => {
+    removeMessage();
+});
+
 let messages = 1;
 
 let intervalId;
@@ -22,12 +29,12 @@ addMessage();
 function addMessage() {
     messages++;
 
-    intervalId = setInterval(function() {
+    intervalId = setInterval(function () {
         if (document.title === 'App') {
             if (messages === 1) {
                 document.title = `(${messages}) New message`;
             } else {
-                document.title = `(${messages}) New messages`
+                document.title = `(${messages}) New messages`;
             }
         } else if (messages === 0) {
             clearInterval(intervalId);
