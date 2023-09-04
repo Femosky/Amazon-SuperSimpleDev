@@ -8,11 +8,29 @@
         <script src="./scripts/project-one.js" defer></script>
     </head>
     <body>
-        <div class="js-button-holder">
-            <button class="js-start-button">Start</button>
-        </div>
-        <button class="js-reset-button">Reset</button>
-        <br />
-        <div class="js-timer-output"></div>
+        <section class="box">
+            <div class="container">
+                <div class="button-div">
+                    <div class="js-button-holder button-holder">
+                        <button
+                            class="js-start-button start-button"
+                            data-type="inverted"
+                        >
+                            Start
+                        </button>
+                    </div>
+                    <button
+                        class="js-reset-button reset-button"
+                        data-type="inverted"
+                    >
+                        Reset
+                    </button>
+                </div>
+
+                <div class="js-timer-output timer-output">
+                    <p class="timer-output-paragraph"></p>
+                </div>
+            </div>
+        </section>
     </body>
 </html>
